@@ -1,10 +1,10 @@
 {
   "name": "renovate-config-seek",
   "version": "0.0.0",
-  "description": "Shareable renovate config for SEEK",
+  "description": "Shareable Renovate config for SEEK",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "node test"
   },
   "repository": {
     "type": "git",
@@ -25,6 +25,8 @@
       "lockFileMaintenance": {
         "enabled": false
       },
+      "rebaseStalePrs": true,
+      "semanticCommits": true,
       "packageRules": [
         {
           "packagePatterns": [
@@ -38,9 +40,10 @@
           ],
           "enabled": true
         }
-      ],
-      "rebaseStalePrs": true,
-      "semanticCommits": true
+      ]
     }
+  },
+  "devDependencies": {
+    "renovate": "10.46.0"
   }
 }
