@@ -1,0 +1,44 @@
+{
+  "name": "renovate-config-seek",
+  "version": "0.0.0",
+  "description": "Shareable renovate config for SEEK",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seek-oss/renovate-config-seek.git"
+  },
+  "author": "SEEK",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seek-oss/renovate-config-seek/issues"
+  },
+  "homepage": "https://github.com/seek-oss/renovate-config-seek#readme",
+  "renovate-config": {
+    "extends": [
+      "config:base"
+    ],
+    "branchPrefix": "renovate--",
+    "lockFileMaintenance": {
+      "enabled": false
+    },
+    "packageRules": [
+      {
+        "packagePatterns": [
+          "*"
+        ],
+        "enabled": false
+      },
+      {
+        "packagePatterns": [
+          "(^(@)?seek.*)|(.*-seek$)|(^sku.*)|(.*-sku$)"
+        ],
+        "enabled": true
+      }
+    ],
+    "rebaseStalePrs": true,
+    "semanticCommits": true
+  }
+}
