@@ -17,28 +17,30 @@
   },
   "homepage": "https://github.com/seek-oss/renovate-config-seek#readme",
   "renovate-config": {
-    "extends": [
-      "config:base"
-    ],
-    "branchPrefix": "renovate--",
-    "lockFileMaintenance": {
-      "enabled": false
-    },
-    "packageRules": [
-      {
-        "packagePatterns": [
-          "*"
-        ],
+    "default": {
+      "extends": [
+        "config:base"
+      ],
+      "branchPrefix": "renovate--",
+      "lockFileMaintenance": {
         "enabled": false
       },
-      {
-        "packagePatterns": [
-          "(^(@)?seek.*)|(.*-seek$)|(^sku.*)|(.*-sku$)"
-        ],
-        "enabled": true
-      }
-    ],
-    "rebaseStalePrs": true,
-    "semanticCommits": true
+      "packageRules": [
+        {
+          "packagePatterns": [
+            "*"
+          ],
+          "enabled": false
+        },
+        {
+          "packagePatterns": [
+            "(^(@)?seek.*)|(.*-seek$)|(^sku.*)|(.*-sku$)"
+          ],
+          "enabled": true
+        }
+      ],
+      "rebaseStalePrs": true,
+      "semanticCommits": true
+    }
   }
 }
