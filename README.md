@@ -10,15 +10,13 @@ This preset extends `config:base`, so all of the usual Renovate defaults are app
 **By default, this preset disables automatic package updates for all non-SEEK packages.** If you want to reintroduce standard Renovate behaviour for other packages, you'll need to use the ["enabled" option](https://renovateapp.com/docs/configuration-reference/configuration-options#enabled).
 
 ## Usage
-You can set this up [a few different ways](https://renovateapp.com/docs/getting-started/configure-renovate#configuration-location), but the easiest option is to add it to your `package.json` like so:
+You can set this up [a few different ways](https://renovateapp.com/docs/getting-started/configure-renovate#configuration-location), but it's recommended that you add a `renovate.json` file to your project with the following contents:
 
 ```js
 {
-  "renovate": {
-    "extends": [
-      "seek"
-    ]
-  }
+  "extends": [
+    "seek"
+  ]
 }
 ```
 
