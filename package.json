@@ -1,6 +1,6 @@
 {
   "name": "renovate-config-seek",
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "description": "Shareable Renovate config for SEEK",
   "main": "index.js",
   "scripts": {
