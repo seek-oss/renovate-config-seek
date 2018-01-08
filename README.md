@@ -1,4 +1,4 @@
-[![Build Status](https://img.shields.io/travis/seek-oss/renovate-config-seek/master.svg?style=flat-square)](http://travis-ci.org/seek-oss/renovate-config-seek) [![npm](https://img.shields.io/npm/v/renovate-config-seek.svg?style=flat-square)](https://www.npmjs.com/package/renovate-config-seek)
+[![Build Status](https://img.shields.io/travis/seek-oss/renovate-config-seek/master.svg?style=flat-square)](http://travis-ci.org/seek-oss/renovate-config-seek) [![npm](https://img.shields.io/npm/v/renovate-config-seek.svg?style=flat-square)](https://www.npmjs.com/package/renovate-config-seek) [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg?style=flat-square)](https://github.com/semantic-release/semantic-release) [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg?style=flat-square)](http://commitizen.github.io/cz-cli/)
 
 # renovate-config-seek
 Shareable [Renovate](https://renovateapp.com) config for [SEEK](https://github.com/seek-oss).
