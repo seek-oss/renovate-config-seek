@@ -1,3 +1,5 @@
+[![Build Status](https://img.shields.io/travis/seek-oss/renovate-config-seek/master.svg?style=flat-square)](http://travis-ci.org/seek-oss/renovate-config-seek) [![npm](https://img.shields.io/npm/v/renovate-config-seek.svg?style=flat-square)](https://www.npmjs.com/package/renovate-config-seek)
+
 # renovate-config-seek
 Shareable [Renovate](https://renovateapp.com) config for [SEEK](https://github.com/seek-oss).
 
