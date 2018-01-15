@@ -3,9 +3,9 @@
 # renovate-config-seek
 Shareable [Renovate](https://renovateapp.com) config for [SEEK](https://github.com/seek-oss).
 
-Keep your internal SEEK packages evergreen by automatically generating pull requests when new versions are published.
-
-This preset extends `config:base`, so all of the usual Renovate defaults are applied.
+This preset extends `config:base`, so all of the usual Renovate defaults are applied, but it also provides a couple of key benefits:
+- By default, to reduce noise, only SEEK packages are automatically kept up to date, generating pull requests whenever new versions are published.
+- Commit messages and pull request titles are specially formatted to follow our [commitlint-config-seek](https://github.com/seek-oss/commitlint-config-seek) conventions.
 
 **By default, this preset disables automatic package updates for all non-SEEK packages.** If you want to reintroduce standard Renovate behaviour for other packages, you'll need to use the ["enabled" option](https://renovateapp.com/docs/configuration-reference/configuration-options#enabled).
 
