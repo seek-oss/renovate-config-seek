@@ -42,7 +42,11 @@
           ],
           "enabled": false
         }
-      ]
+      ],
+      "pinVersions": false,
+      "dependencies": {
+        "pinVersions": true
+      }
     }
   },
   "config": {
