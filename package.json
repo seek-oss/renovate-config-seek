@@ -31,7 +31,7 @@
         "enabled": false
       },
       "semanticCommits": false,
-      "commitMessagePrefix": "{{semanticCommitType}}({{semanticCommitScope}})",
+      "commitMessagePrefix": "{{semanticCommitType}}({{semanticCommitScope}}):",
       "commitMessageAction": "{{#if isPin}}Pin{{else}}{{#if isRollback}}Roll back{{else}}Update{{/if}}{{/if}}",
       "commitMessageExtra": "to {{#unless isRange}}v{{/unless}}{{#if isMajor}}{{newVersionMajor}}.x{{else}}{{newVersion}}{{/if}}",
       "packageRules": [
