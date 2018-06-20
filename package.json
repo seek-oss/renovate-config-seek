@@ -31,8 +31,9 @@
         "enabled": false
       },
       "semanticCommits": false,
-      "prTitle": "{{semanticCommitType}}({{semanticCommitScope}}): {{#if isPin}}Pin{{else}}{{#if isRollback}}Roll back{{else}}Update{{/if}}{{/if}} {{depName}} to {{#unless isRange}}v{{/unless}}{{#if isMajor}}{{newVersionMajor}}.x{{else}}{{newVersion}}{{/if}}",
-      "commitMessage": "{{semanticCommitType}}({{semanticCommitScope}}): Update {{depName}} to {{#unless isRange}}v{{/unless}}{{newVersion}}",
+      "commitMessagePrefix": "{{semanticCommitType}}({{semanticCommitScope}}):",
+      "commitMessageAction": "{{#if isPin}}Pin{{else}}{{#if isRollback}}Roll back{{else}}Update{{/if}}{{/if}}",
+      "commitMessageExtra": "to {{#unless isRange}}v{{/unless}}{{#if isMajor}}{{newVersionMajor}}.x{{else}}{{newVersion}}{{/if}}",
       "packageRules": [
         {
           "packagePatterns": [
@@ -42,12 +43,26 @@
             "(^(@)?seek.*)|(.*-seek(-.*|$))|(^sku.*)|(.*-sku$)"
           ],
           "enabled": false
+        },
+        {
+          "depTypeList": [
+            "dependencies"
+          ],
+          "rangeStrategy": "auto"
+        },
+        {
+          "depTypeList": [
+            "devDependencies"
+          ],
+          "rangeStrategy": "replace"
+        },
+        {
+          "depTypeList": [
+            "peerDependencies"
+          ],
+          "rangeStrategy": "widen"
         }
-      ],
-      "pinVersions": false,
-      "dependencies": {
-        "pinVersions": true
-      }
+      ]
     }
   },
   "config": {
@@ -64,7 +79,7 @@
     "commitlint-config-seek": "^1.0.0",
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^0.14.3",
-    "renovate": "^11.34.2",
+    "renovate": "^12.56.15",
     "semantic-release": "^15.5.5"
   }
 }
