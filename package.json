@@ -48,7 +48,13 @@
           "depTypeList": [
             "dependencies"
           ],
-          "rangeStrategy": "pin"
+          "rangeStrategy": "auto"
+        },
+        {
+          "depTypeList": [
+            "devDependencies"
+          ],
+          "rangeStrategy": "replace"
         },
         {
           "depTypeList": [
