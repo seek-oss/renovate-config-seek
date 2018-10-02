@@ -40,7 +40,7 @@
             "*"
           ],
           "excludePackagePatterns": [
-            "(^(@)?seek.*)|(.*-seek(-.*|$))|(^sku.*)|(.*-sku$)"
+            "(^((@)?seek|sku|braid-design-system).*)|(.*-(seek|sku|braid-design-system)(-.*|$))"
           ],
           "enabled": false
         },
@@ -79,7 +79,7 @@
     "commitlint-config-seek": "^1.0.0",
     "cz-conventional-changelog": "^2.1.0",
     "husky": "^0.14.3",
-    "renovate": "^12.56.15",
+    "renovate": "^13.88.1",
     "semantic-release": "^15.5.5"
   }
 }

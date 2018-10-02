@@ -13,7 +13,10 @@ const exampleSeekPackages = [
   'seek-style-guide',
   'eslint-config-seek',
   'babel-plugin-seek-style-guide',
-  '@seek/private-package'
+  '@seek/private-package',
+  'braid-design-system',
+  'braid-design-system-webpack',
+  'babel-plugin-braid-design-system'
 ];
 
 exampleSeekPackages.forEach(exampleSeekPackage => {
@@ -24,7 +27,8 @@ exampleSeekPackages.forEach(exampleSeekPackage => {
 const exampleNonSeekPackages = [
   'react',
   'webpack',
-  'jest'
+  'jest',
+  'braid' // We want to own 'braid-design-system', not 'braid'
 ];
 
 exampleNonSeekPackages.forEach(exampleNonSeekPackage => {
