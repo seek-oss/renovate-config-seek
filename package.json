@@ -23,7 +23,8 @@
   "renovate-config": {
     "default": {
       "extends": [
-        "config:base"
+        "config:base",
+        "preview:buildkite"
       ],
       "branchPrefix": "renovate--",
       "ignoreNpmrcFile": true,
