@@ -28,7 +28,10 @@
       "branchPrefix": "renovate--",
       "ignoreNpmrcFile": true,
       "lockFileMaintenance": {
-        "enabled": false
+        "enabled": true,
+        "schedule": [
+          "on the first day of the month"
+        ]
       },
       "semanticCommits": false,
       "commitMessagePrefix": "{{semanticCommitType}}({{semanticCommitScope}}):",
@@ -62,6 +65,72 @@
           ],
           "rangeStrategy": "widen"
         }
+      ]
+    },
+    "grouped": {
+      "packageRules": [
+        {
+          "groupName": "react",
+          "packagePatterns": [
+            "^(@types/)?react",
+            "^redux"
+          ]
+        },
+        {
+          "groupName": "jest",
+          "packagePatterns": [
+            "^jest",
+            "^enzyme"
+          ]
+        },
+        {
+          "groupName": "lodash",
+          "packagePatterns": [
+            "^(@types/)?lodash(.?)(.*)$"
+          ]
+        },
+        {
+          "groupName": "cypress",
+          "packagePatterns": [
+            "^cypress"
+          ]
+        },
+        {
+          "groupName": "node",
+          "packageNames": [
+            "node"
+          ]
+        },
+        {
+          "groupName": "design",
+          "packageNames": [
+            "braid-design-system",
+            "@seek/discover-shared-ui"
+          ]
+        }
+      ]
+    },
+    "thirdparty": {
+      "packageRules": [
+        {
+          "packagePatterns": [
+            "*"
+          ],
+          "excludePackagePatterns": [
+            "(^((@)?seek|sku|braid-design-system).*)|(.*-(seek|sku|braid-design-system)(-.*|$))"
+          ],
+          "schedule": [
+            "on wednesday"
+          ],
+          "enabled": true
+        }
+      ]
+    },
+    "all": {
+      "extends": [
+        "seek",
+        "seek:grouped",
+        "seek:thirdparty"
       ]
     }
   },
