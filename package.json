@@ -8,7 +8,7 @@
     "prepush": "npm test",
     "commit": "git-cz",
     "commitmsg": "commitlint --edit --extends seek",
-    "semantic-release": "semantic-release"
+    "release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -40,7 +40,7 @@
             "*"
           ],
           "excludePackagePatterns": [
-            "(^((@)?seek|sku|braid-design-system).*)|(.*-(seek|sku|braid-design-system)(-.*|$))"
+            "(^(@seek\/|seek|sku|braid-design-system).*)(.*-(seek|sku|braid-design-system)(-.*|$))?"
           ],
           "enabled": false
         },
@@ -74,12 +74,12 @@
     "success": false
   },
   "devDependencies": {
-    "@commitlint/cli": "^7.0.0",
-    "commitizen": "^2.10.1",
+    "@commitlint/cli": "^8.3.5",
+    "commitizen": "^4.1.2",
     "commitlint-config-seek": "^1.0.0",
-    "cz-conventional-changelog": "^2.1.0",
-    "husky": "^0.14.3",
-    "renovate": "^19.38.7",
-    "semantic-release": "^15.5.5"
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5",
+    "renovate": "^19.231.4",
+    "semantic-release": "^17.0.7"
   }
 }

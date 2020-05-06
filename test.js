@@ -28,7 +28,8 @@ const exampleNonSeekPackages = [
   'react',
   'webpack',
   'jest',
-  'braid' // We want to own 'braid-design-system', not 'braid'
+  'braid', // We want to own 'braid-design-system', not 'braid'
+  '@seekasia/github-seek-asia-registry-package'
 ];
 
 exampleNonSeekPackages.forEach(exampleNonSeekPackage => {
