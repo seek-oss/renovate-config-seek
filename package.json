@@ -25,7 +25,7 @@
       "extends": [
         "config:base"
       ],
-      "branchPrefix": "renovate--",
+      "branchPrefix": "renovate-",
       "ignoreNpmrcFile": true,
       "lockFileMaintenance": {
         "enabled": false
