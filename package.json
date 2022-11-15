@@ -4,11 +4,10 @@
   "description": "Shareable Renovate config for SEEK",
   "main": "index.js",
   "scripts": {
-    "test": "node test",
+    "changeset-version": "changeset version && prettier --write .",
     "prepush": "npm test",
-    "commit": "git-cz",
-    "commitmsg": "commitlint --edit --extends seek",
-    "semantic-release": "semantic-release"
+    "release": "changeset publish",
+    "test": "node test"
   },
   "repository": {
     "type": "git",
