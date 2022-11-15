@@ -70,9 +70,6 @@
       "path": "./node_modules/cz-conventional-changelog"
     }
   },
-  "release": {
-    "success": false
-  },
   "devDependencies": {
     "@commitlint/cli": "^7.0.0",
     "commitizen": "^2.10.1",
@@ -81,5 +78,9 @@
     "husky": "^0.14.3",
     "renovate": "^19.38.7",
     "semantic-release": "^15.5.5"
+  },
+  "packageManager": "pnpm@7.14.0",
+  "volta": {
+    "node": "16.18.0"
   }
 }
