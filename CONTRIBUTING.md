@@ -2,7 +2,7 @@
 
 Hi there, thanks for checking out our repo!
 
-Rynovate is a set of [shareable Renovate config presets] that we use at SEEK.
+renovate-config-seek is a set of [shareable Renovate config presets] that we use at SEEK.
 While third-party contributions are certainly welcome,
 this project is entirely driven by our internal requirements.
 
@@ -21,7 +21,7 @@ so don't commit or post anything that isn't ready for the entire world to see.
 
 ## Getting started
 
-Rynovate is documented through its [README](/README.md).
+renovate-config-seek is documented through its [README](/README.md).
 Its presets are mastered as JSON files in the repository root.
 
 Keep in mind that Renovate is incredibly difficult to configure correctly.
@@ -68,7 +68,7 @@ If you don't have push access,
 you may need to [fork the repo] and push there instead:
 
 ```shell
-git remote add fork git@github.com:your-username/rynovate.git
+git remote add fork git@github.com:your-username/renovate-config-seek.git
 git push --set-upstream fork your-branch-name
 ```
 
@@ -80,14 +80,14 @@ If all is well, they will merge your pull request into master.
 If you are making a non-trivial change,
 we recommend that you test it out on an individual repository first.
 
-Extending an existing Rynovate config is often not enough,
+Extending an existing renovate-config-seek config is often not enough,
 as package rule ordering can affect Renovate's behaviour in non-obvious ways.
 
 ```json5
 // Not recommended for testing changes to the preset. Instead, copy across the
 // raw JSON of the preset and tweak it from there.
 {
-  extends: ['github>seek-oss/rynovate'],
+  extends: ['github>seek-oss/renovate-config-seek'],
   packageRules: [
     // ...
   ],
@@ -102,13 +102,13 @@ You can push changes to this onboarding PR to update the preview.
 
 ## Releases
 
-Rynovate consumers track the master branch on GitHub,
+renovate-config-seek consumers track the master branch on GitHub,
 so merging a pull request constitutes a release.
 
 [#typescriptification]: https://seekchat.slack.com/channels/typescriptification
-[create a pull request]: https://github.com/seek-oss/rynovate/compare
-[fork the repo]: https://github.com/seek-oss/rynovate/fork
+[create a pull request]: https://github.com/seek-oss/renovate-config-seek/compare
+[fork the repo]: https://github.com/seek-oss/renovate-config-seek/fork
 [install renovate]: https://github.com/apps/renovate/installations/new
 [onboarding pr]: https://docs.renovatebot.com/configure-renovate/
 [shareable renovate config presets]: https://docs.renovatebot.com/config-presets/
-[submit an issue]: https://github.com/seek-oss/rynovate/issues/new/choose
+[submit an issue]: https://github.com/seek-oss/renovate-config-seek/issues/new/choose

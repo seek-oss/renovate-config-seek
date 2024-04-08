@@ -1,6 +1,6 @@
-# Rynovate
+# renovate-config-seek
 
-[![Validate](https://github.com/seek-oss/rynovate/actions/workflows/validate.yml/badge.svg)](https://github.com/seek-oss/rynovate/actions/workflows/validate.yml)
+[![Validate](https://github.com/seek-oss/renovate-config-seek/actions/workflows/validate.yml/badge.svg)](https://github.com/seek-oss/renovate-config-seek/actions/workflows/validate.yml)
 
 Mildly-aggressive [Renovate] presets for keeping dependencies up to date.
 
@@ -16,7 +16,7 @@ See [renovate-config-seek] for a baseline preset that only maintains SEEK npm pa
   - [non-critical](#non-critical)
   - [third-party-major](#third-party-major)
 - [Usage](#usage)
-- [Contributing](https://github.com/seek-oss/rynovate/blob/master/CONTRIBUTING.md)
+- [Contributing](https://github.com/seek-oss/renovate-config-seek/blob/master/CONTRIBUTING.md)
 
 ## Presets
 
@@ -81,7 +81,7 @@ Reference in an [extends] array within [Renovate] config:
     // Required to access private SEEK packages
     'local>seek-jobs/renovate-config',
 
-    'github>seek-oss/rynovate',
+    'github>seek-oss/renovate-config-seek',
   ],
 }
 ```
@@ -94,7 +94,7 @@ Choose a named preset with a `:preset` suffix:
     // Required to access private SEEK packages
     'local>seek-jobs/renovate-config',
 
-    'github>seek-oss/rynovate:non-critical'.
+    'github>seek-oss/renovate-config-seek:non-critical'.
   ],
 }
 ```
@@ -109,7 +109,7 @@ Disable incompatible major version upgrades for a specific package:
     // Required to access private SEEK packages
     'local>seek-jobs/renovate-config',
 
-    'github>seek-oss/rynovate',
+    'github>seek-oss/renovate-config-seek',
   ],
   packageRules: [
     {
@@ -131,7 +131,7 @@ Ignore a specific package version:
     // Required to access private SEEK packages
     'local>seek-jobs/renovate-config',
 
-    'github>seek-oss/rynovate',
+    'github>seek-oss/renovate-config-seek',
   ],
   packageRules: [
     {
@@ -152,7 +152,7 @@ Ungroup a specific package that is usually grouped by the preset:
     // Required to access private SEEK packages
     'local>seek-jobs/renovate-config',
 
-    'github>seek-oss/rynovate:non-critical',
+    'github>seek-oss/renovate-config-seek:non-critical',
   ],
   packageRules: [
     {
