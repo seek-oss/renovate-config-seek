@@ -1,0 +1,88 @@
+{
+  "extends": [
+    ":dependencyDashboard",
+    ":prHourlyLimit2",
+    ":rebaseStalePrs",
+    ":renovatePrefix",
+    ":semanticCommits",
+    ":timezone(Australia/Melbourne)",
+    "preview:buildkite",
+    "preview:dockerCompose",
+    "docker:disableMajor"
+  ],
+  "lockFileMaintenance": { "enabled": true },
+  "packageRules": [
+    {
+      "matchCategories": ["docker"],
+      "commitMessageExtra": "",
+      "group": { "commitMessageTopic": "{{groupName}}" }
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["@types/node"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["dd-trace"],
+      "matchUpdateTypes": ["major", "minor"],
+
+      "minimumReleaseAge": "14 days"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["aws-sdk-mock"],
+      "allowedVersions": "!/^5\\.5\\.0$/"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["@types/faker", "faker"],
+      "allowedVersions": "< 6"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["dd-trace"],
+
+      "allowedVersions": "!/^(3\\.42\\.0|4\\.21\\.0)$/"
+    },
+    {
+      "excludePackageNames": ["seek-jobs/gantry"],
+      "matchUpdateTypes": [
+        "bump",
+        "digest",
+        "major",
+        "minor",
+        "patch",
+        "pin",
+        "rollback"
+      ],
+      "groupName": "all dependencies",
+      "semanticCommitType": "fix"
+    },
+    {
+      "matchManagers": ["buildkite"],
+      "matchPackageNames": ["seek-jobs/gantry"],
+      "commitMessageAction": "",
+      "commitMessageExtra": "{{newValue}}",
+      "commitMessageTopic": "{{depName}}",
+      "schedule": "before 6:00 am every weekday"
+    },
+    { "matchUpdateTypes": ["lockFileMaintenance"], "automerge": true },
+    {
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "prPriority": 99,
+      "schedule": "before 3:00 am every 2 weeks on Wednesday"
+    }
+  ],
+  "buildkite": { "additionalBranchPrefix": "", "commitMessageExtra": "" },
+  "commitMessageAction": "",
+  "commitMessageExtra": "",
+  "postUpdateOptions": ["yarnDedupeFewer"],
+  "prConcurrentLimit": 2,
+  "prNotPendingHours": 1,
+  "schedule": "before 6:00 am on Monday",
+  "semanticCommitScope": "",
+  "semanticCommitType": "deps",
+  "separateMajorMinor": false
+}

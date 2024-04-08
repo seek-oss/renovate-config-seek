@@ -1,0 +1,273 @@
+{
+  "extends": [
+    ":dependencyDashboard",
+    ":rebaseStalePrs",
+    ":semanticCommits",
+    ":timezone(Australia/Melbourne)",
+    "preview:buildkite",
+    "preview:dockerCompose",
+    "docker:disableMajor",
+    "group:monorepos"
+  ],
+  "lockFileMaintenance": {
+    "enabled": true
+  },
+  "packageRules": [
+    {
+      "matchDepTypes": ["peerDependencies"],
+
+      "rangeStrategy": "widen"
+    },
+    {
+      "matchManagers": ["buildkite", "gomod", "npm", "nvm"],
+
+      "commitMessageExtra": "{{newValue}}",
+      "commitMessageTopic": "{{depName}}"
+    },
+    {
+      "matchManagers": ["gomod"],
+
+      "digest": {
+        "commitMessageExtra": "",
+        "groupName": "gomod digests",
+        "schedule": "after 3:00 am and before 6:00 am on the first day of the month"
+      },
+      "semanticCommitType": "fix"
+    },
+    {
+      "matchDepTypes": ["dependencies", "peerDependencies"],
+      "matchManagers": ["npm"],
+
+      "semanticCommitType": "fix"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["@types/node"],
+      "matchUpdateTypes": ["major"],
+
+      "enabled": false
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["dd-trace"],
+      "matchUpdateTypes": ["major", "minor"],
+
+      "minimumReleaseAge": "14 days"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["aws-sdk-mock"],
+
+      "allowedVersions": "!/^5\\.5\\.0$/"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["aws-sdk-client-mock", "aws-sdk-client-mock-jest"],
+      "groupName": "aws-sdk client mock"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["@types/faker", "faker"],
+
+      "allowedVersions": "< 6"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["dd-trace"],
+
+      "allowedVersions": "!/^(3\\.42\\.0|4\\.21\\.0)$/"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackagePatterns": ["^@types/"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+
+      "automerge": true
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackagePatterns": ["^@types/"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+
+      "commitMessageExtra": "",
+      "groupName": "npm definitely typed",
+      "prPriority": 99,
+      "schedule": "before 3:00 am every 2 weeks on Tuesday"
+    },
+    {
+      "excludePackageNames": ["aws-sdk", "braid-design-system", "sku", "skuba"],
+      "excludePackagePatterns": [
+        "^@?seek",
+        "seek$",
+        "^@aws-sdk/",
+        "^@types/",
+        "^@vanilla-extract/",
+        "^serverless"
+      ],
+      "matchDepTypes": ["devDependencies"],
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+
+      "commitMessageExtra": "",
+      "groupName": "npm dev dependencies",
+      "schedule": "after 3:00 am and before 6:00 am every 2 weeks on Tuesday"
+    },
+    {
+      "matchDepTypes": ["peerDependencies"],
+      "matchManagers": ["npm"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+
+      "schedule": "after 3:00 am and before 6:00 am every 2 weeks on Tuesday"
+    },
+    {
+      "excludePackagePatterns": ["^seek-jobs/", "^seek-oss/"],
+      "matchManagers": ["buildkite"],
+
+      "additionalBranchPrefix": "",
+      "commitMessageExtra": "",
+      "groupName": "buildkite plugins",
+      "schedule": "after 3:00 am and before 6:00 am every 2 weeks on Wednesday"
+    },
+    {
+      "matchManagers": ["docker-compose", "dockerfile"],
+
+      "commitMessageExtra": "",
+      "group": {
+        "commitMessageTopic": "{{groupName}}"
+      },
+      "groupName": "docker images",
+      "schedule": "after 3:00 am and before 6:00 am every 2 weeks on Wednesday"
+    },
+    {
+      "matchPackageNames": ["braid-design-system", "sku", "skuba"],
+      "matchPackagePatterns": ["^@?seek", "seek$", "^@vanilla-extract/"],
+
+      "prPriority": 98,
+      "schedule": "after 3:00 am and before 6:00 am every weekday",
+      "minimumReleaseAge": "0 days",
+      "updateNotScheduled": true
+    },
+    {
+      "matchManagers": ["buildkite"],
+      "matchPackageNames": ["seek-jobs/gantry"],
+
+      "schedule": "after 3:00 am and before 5:00 pm every weekday",
+      "minimumReleaseAge": "0 days",
+      "updateNotScheduled": true
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["aws-sdk"],
+      "matchPackagePatterns": ["^@aws-sdk/", "^@smithy/"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+
+      "commitMessageExtra": "",
+      "groupName": "aws-sdk",
+      "schedule": "after 3:00 am and before 6:00 am on the first day of the month",
+      "minimumReleaseAge": "0 days",
+      "updateNotScheduled": true
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["apollo-server-plugin-base", "apollo-server-types"],
+      "matchUpdateTypes": ["major", "minor", "patch"],
+
+      "groupName": "apollo-server monorepo"
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "@seek/backoffice-access",
+        "@seek/ca-graphql-schema",
+        "@seek/hirer-jobs-types",
+        "@seek/ie-shared-types",
+        "@seek/indie-cardib-types"
+      ],
+
+      "automerge": true,
+      "minimumReleaseAge": "0 days",
+      "updateNotScheduled": true
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "@seek/backoffice-access",
+        "@seek/ca-graphql-schema",
+        "@seek/hirer-jobs-types",
+        "@seek/ie-shared-types",
+        "@seek/indie-cardib-types"
+      ],
+
+      "schedule": "before 3:00 am every weekday"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": ["sku", "skuba"],
+      "matchUpdateTypes": ["patch"],
+
+      "automerge": true,
+      "minimumReleaseAge": "0 days",
+      "updateNotScheduled": true
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchPackageNames": [
+        "@seek/apply-pipeline-contracts",
+        "@seek/blobstore-consumer-sdk",
+        "@seek/candidate-data-contracts",
+        "@seek/indie-api-types",
+        "@seek/indie-mocks"
+      ],
+      "matchUpdateTypes": ["minor", "patch"],
+
+      "automerge": true,
+      "schedule": "before 3:00 am every weekday",
+      "minimumReleaseAge": "0 days",
+      "updateNotScheduled": true
+    },
+    {
+      "matchPackageNames": ["react-relay"],
+      "matchPackagePatterns": ["^relay-"],
+
+      "groupName": "relay"
+    },
+    {
+      "matchUpdateTypes": ["lockFileMaintenance"],
+
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["lockFileMaintenance"],
+
+      "prPriority": 99,
+      "schedule": "before 3:00 am every 2 weeks on Wednesday"
+    },
+    {
+      "matchUpdateTypes": ["pin"],
+
+      "automerge": true
+    },
+    {
+      "matchUpdateTypes": ["pin"],
+
+      "prPriority": 99,
+      "schedule": "before 3:00 am every weekday"
+    }
+  ],
+  "branchConcurrentLimit": 12,
+  "branchPrefix": "renovate-",
+  "commitMessageAction": "",
+  "postUpdateOptions": ["yarnDedupeFewer"],
+  "prConcurrentLimit": 3,
+  "prNotPendingHours": 1,
+  "rangeStrategy": "replace",
+  "schedule": "after 3:00 am and before 6:00 am on Monday and Friday",
+  "semanticCommitScope": "",
+  "semanticCommitType": "deps",
+  "prCreation": "immediate",
+  "minimumReleaseAge": "3 days",
+  "internalChecksFilter": "strict",
+  "updateNotScheduled": false
+}
