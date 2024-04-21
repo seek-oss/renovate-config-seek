@@ -4,10 +4,7 @@
 
 Mildly-aggressive [Renovate] presets for keeping dependencies up to date.
 
-See [renovate-config-seek] for a baseline preset that only maintains SEEK npm packages.
-
 [renovate]: https://renovatebot.com/
-[renovate-config-seek]: https://github.com/seek-oss/renovate-config-seek
 
 ## Table of contents
 
