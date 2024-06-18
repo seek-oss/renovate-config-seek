@@ -1,85 +1,20 @@
 {
-  "name": "renovate-config-seek",
-  "version": "0.0.0-development",
-  "description": "Shareable Renovate config for SEEK",
-  "main": "index.js",
-  "scripts": {
-    "test": "node test",
-    "prepush": "npm test",
-    "commit": "git-cz",
-    "commitmsg": "commitlint --edit --extends seek",
-    "semantic-release": "semantic-release"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/seek-oss/renovate-config-seek.git"
-  },
-  "author": "SEEK",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/seek-oss/renovate-config-seek/issues"
-  },
-  "homepage": "https://github.com/seek-oss/renovate-config-seek#readme",
-  "renovate-config": {
-    "default": {
-      "extends": [
-        "config:base"
-      ],
-      "branchPrefix": "renovate--",
-      "ignoreNpmrcFile": true,
-      "lockFileMaintenance": {
-        "enabled": false
-      },
-      "semanticCommits": false,
-      "commitMessagePrefix": "{{semanticCommitType}}({{semanticCommitScope}}):",
-      "commitMessageAction": "{{#if isPin}}Pin{{else}}{{#if isRollback}}Roll back{{else}}Update{{/if}}{{/if}}",
-      "commitMessageExtra": "to {{#unless isRange}}v{{/unless}}{{#if isMajor}}{{newVersionMajor}}.x{{else}}{{newVersion}}{{/if}}",
-      "packageRules": [
-        {
-          "packagePatterns": [
-            "*"
-          ],
-          "excludePackagePatterns": [
-            "(^((@)?seek|sku|braid-design-system).*)|(.*-(seek|sku|braid-design-system)(-.*|$))"
-          ],
-          "enabled": false
-        },
-        {
-          "depTypeList": [
-            "dependencies"
-          ],
-          "rangeStrategy": "auto"
-        },
-        {
-          "depTypeList": [
-            "devDependencies"
-          ],
-          "rangeStrategy": "replace"
-        },
-        {
-          "depTypeList": [
-            "peerDependencies"
-          ],
-          "rangeStrategy": "widen"
-        }
-      ]
-    }
-  },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "release": {
-    "success": false
-  },
   "devDependencies": {
-    "@commitlint/cli": "^7.0.0",
-    "commitizen": "^2.10.1",
-    "commitlint-config-seek": "^1.0.0",
-    "cz-conventional-changelog": "^2.1.0",
-    "husky": "^0.14.3",
-    "renovate": "^19.38.7",
-    "semantic-release": "^15.5.5"
-  }
+    "prettier": "3.2.5",
+    "renovate": "37.315.1"
+  },
+  "license": "MIT",
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 2
+  },
+  "scripts": {
+    "format": "prettier --write .",
+    "lint": "prettier --check .",
+    "test": "pnpm /^test:.+/",
+    "test:default": "RENOVATE_CONFIG_FILE=default.json renovate-config-validator",
+    "test:non-critical": "RENOVATE_CONFIG_FILE=non-critical.json renovate-config-validator",
+    "test:third-party-major": "RENOVATE_CONFIG_FILE=third-party-major.json renovate-config-validator"
+  },
+  "packageManager": "pnpm@9.0.5"
 }

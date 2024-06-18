@@ -1,0 +1,34 @@
+name: Validate
+
+on:
+  - pull_request
+  - push
+
+permissions: {}
+
+jobs:
+  validate:
+    name: Lint & Test
+    permissions:
+      checks: write
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js 20.x
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20.x
+
+      - name: Set up pnpm
+        run: corepack enable pnpm && corepack install
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Test
+        run: pnpm test
+
+      - name: Lint
+        run: pnpm lint
