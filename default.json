@@ -42,38 +42,45 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["@types/node"],
+      "matchDepNames": ["@types/node", "node-fetch"],
       "matchUpdateTypes": ["major"],
 
       "enabled": false
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["dd-trace"],
+      "matchDepNames": ["serverless"],
+      "matchUpdateTypes": ["major"],
+      "matchCurrentVersion": "/^3\\./",
+      "enabled": false
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchDepNames": ["dd-trace"],
       "matchUpdateTypes": ["major", "minor"],
 
       "minimumReleaseAge": "14 days"
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["aws-sdk-mock"],
+      "matchDepNames": ["aws-sdk-mock"],
 
       "allowedVersions": "!/^5\\.5\\.0$/"
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["aws-sdk-client-mock", "aws-sdk-client-mock-jest"],
+      "matchDepNames": ["aws-sdk-client-mock", "aws-sdk-client-mock-jest"],
       "groupName": "aws-sdk client mock"
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["@types/faker", "faker"],
+      "matchDepNames": ["@types/faker", "faker"],
 
       "allowedVersions": "< 6"
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["dd-trace"],
+      "matchDepNames": ["dd-trace"],
 
       "allowedVersions": "!/^(3\\.42\\.0|4\\.21\\.0)$/"
     },
@@ -139,7 +146,7 @@
       "schedule": "after 3:00 am and before 6:00 am every 2 weeks on Wednesday"
     },
     {
-      "matchPackageNames": ["braid-design-system", "sku", "skuba"],
+      "matchDepNames": ["braid-design-system", "sku", "skuba"],
       "matchPackagePatterns": ["^@?seek", "seek$", "^@vanilla-extract/"],
 
       "prPriority": 98,
@@ -149,7 +156,7 @@
     },
     {
       "matchManagers": ["buildkite"],
-      "matchPackageNames": ["seek-jobs/gantry"],
+      "matchDepNames": ["seek-jobs/gantry"],
 
       "schedule": "after 3:00 am and before 5:00 pm every weekday",
       "minimumReleaseAge": "0 days",
@@ -157,19 +164,19 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["aws-sdk"],
+      "matchDepNames": ["aws-sdk", "serverless"],
       "matchPackagePatterns": ["^@aws-sdk/", "^@smithy/"],
       "matchUpdateTypes": ["major", "minor", "patch"],
 
       "commitMessageExtra": "",
-      "groupName": "aws-sdk",
+      "groupName": "aws-sdk and serverless",
       "schedule": "after 3:00 am and before 6:00 am on the first day of the month",
       "minimumReleaseAge": "0 days",
       "updateNotScheduled": true
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["apollo-server-plugin-base", "apollo-server-types"],
+      "matchDepNames": ["apollo-server-plugin-base", "apollo-server-types"],
       "matchUpdateTypes": ["major", "minor", "patch"],
 
       "groupName": "apollo-server monorepo"
@@ -177,7 +184,7 @@
     {
       "matchDepTypes": ["devDependencies"],
       "matchManagers": ["npm"],
-      "matchPackageNames": [
+      "matchDepNames": [
         "@seek/backoffice-access",
         "@seek/ca-graphql-schema",
         "@seek/hirer-jobs-types",
@@ -192,7 +199,7 @@
     {
       "matchDepTypes": ["devDependencies"],
       "matchManagers": ["npm"],
-      "matchPackageNames": [
+      "matchDepNames": [
         "@seek/backoffice-access",
         "@seek/ca-graphql-schema",
         "@seek/hirer-jobs-types",
@@ -204,7 +211,7 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["sku", "skuba"],
+      "matchDepNames": ["sku", "skuba"],
       "matchUpdateTypes": ["patch"],
 
       "automerge": true,
@@ -213,7 +220,7 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": [
+      "matchDepNames": [
         "@seek/apply-pipeline-contracts",
         "@seek/blobstore-consumer-sdk",
         "@seek/candidate-data-contracts",
@@ -228,7 +235,7 @@
       "updateNotScheduled": true
     },
     {
-      "matchPackageNames": ["react-relay"],
+      "matchDepNames": ["react-relay"],
       "matchPackagePatterns": ["^relay-"],
 
       "groupName": "relay"
@@ -256,7 +263,7 @@
       "schedule": "before 3:00 am every weekday"
     }
   ],
-  "branchConcurrentLimit": 12,
+  "branchConcurrentLimit": null,
   "branchPrefix": "renovate-",
   "commitMessageAction": "",
   "postUpdateOptions": ["yarnDedupeFewer"],

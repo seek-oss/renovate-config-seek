@@ -33,6 +33,13 @@
       "semanticCommitType": "fix"
     },
     {
+      "matchManagers": ["npm"],
+      "matchDepNames": ["serverless"],
+      "matchUpdateTypes": ["major"],
+      "matchCurrentVersion": "/^3\\./",
+      "enabled": false
+    },
+    {
       "excludePackageNames": ["braid-design-system", "sku", "skuba"],
       "excludePackagePatterns": ["^@?seek", "seek$"],
       "matchManagers": ["npm"],
@@ -42,19 +49,19 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["aws-sdk-mock"],
+      "matchDepNames": ["aws-sdk-mock"],
 
       "allowedVersions": "!/^5\\.5\\.0$/"
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["@types/faker", "faker"],
+      "matchDepNames": ["@types/faker", "faker"],
 
       "allowedVersions": "< 6"
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["dd-trace"],
+      "matchDepNames": ["dd-trace"],
 
       "allowedVersions": "!/^(3\\.42\\.0|4\\.21\\.0)$/"
     },
@@ -69,7 +76,7 @@
     },
     {
       "matchManagers": ["npm"],
-      "matchPackageNames": ["dd-trace"],
+      "matchDepNames": ["dd-trace"],
       "matchUpdateTypes": ["major", "minor"],
 
       "minimumReleaseAge": "14 days"
@@ -94,7 +101,7 @@
       "schedule": "after 3:00 am and before 6:00 am every 2 weeks on Wednesday"
     },
     {
-      "matchPackageNames": ["braid-design-system", "sku", "skuba"],
+      "matchDepNames": ["braid-design-system", "sku", "skuba"],
       "matchPackagePatterns": ["^@?seek", "seek$"],
 
       "prPriority": 98,
